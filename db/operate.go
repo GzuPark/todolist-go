@@ -28,3 +28,45 @@ func CreateTodoList(name string) (list todo.List, err error) {
 	err = db.QueryRow(`INSERT INTO todo_list (name) VALUES ($1) RETURNING id`, name).Scan(&list.ID)
 	return
 }
+
+// GetTodoList specific todo list with items
+func GetTodoList(todoListID int) (todo.ListWithItems, error) {
+	var list todo.ListWithItems
+
+	rows, err := db.Query(`SELECT l.id, l.name, i.id, i.text, i.done
+		FROM todo_list l
+		LEFT JOIN todo_item i ON l.id = i.todo_list_id
+		WHERE l.id = $1`, todoListID)
+	if err != nil {
+		return list, err
+	}
+	defer rows.Close()
+
+	list.Items = []todo.Item{}
+	var gotTodoList bool
+	for rows.Next() {
+		var (
+			itemID   *int
+			itemText *string
+			itemDone *bool
+		)
+
+		if err := rows.Scan(&list.ID, &list.Name, &itemID, &itemText, &itemDone); err != nil {
+			return list, err
+		}
+		gotTodoList = true
+
+		if itemID != nil && itemText != nil && itemDone != nil {
+			list.Items = append(list.Items, todo.Item{
+				ID:   *itemID,
+				Text: *itemText,
+				Done: *itemDone})
+		}
+	}
+
+	if !gotTodoList {
+		return list, ErrorNotFound
+	}
+
+	return list, nil
+}

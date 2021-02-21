@@ -3,7 +3,7 @@
 ## APIs
 - [x] `GET/lists`: 목록 받기
 - [x] `POST/list`: 새로운 목록 생성
-- [ ] `GET/list/{list_id}`: 목록 이름 및 아이템 받기
+- [x] `GET/list/{list_id}`: 목록 이름 및 아이템 받기
 - [ ] `PUT/list/{list_id}`: 목록 이름 변경
 - [ ] `DELETE/list/{list_id}`: 목록 삭제
 - [ ] `POST/list/{list_id}/item`: 새로운 아이템 추가
@@ -91,5 +91,16 @@
 - 생성된 todo list의 목록을 확인할 수 있음
 
 ![curl: POST/list](./assets/curl_post_list.png)
+
+</details>
+
+
+<details>
+<summary> Method <code>GET/list/{list_id}</code> </summary>
+
+- `GET/list/{list_id}` 작성
+- todo list와 items를 LEFT JOIN 한 후 해당하는 list ID의 목록을 출력
+
+![curl: GET/list/{list_id}](./assets/curl_get_list_list_id.png)
 
 </details>

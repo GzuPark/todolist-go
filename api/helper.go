@@ -5,10 +5,17 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strconv"
+
+	"github.com/gorilla/mux"
+	"github.com/gzupark/todolist-go/db"
 )
 
 func must(err error) {
-	if err != nil {
+	if err == db.ErrorNotFound {
+		log.Println("not found:", err)
+		panic(notFoundError)
+	} else if err != nil {
 		log.Println("internal error:", err)
 		panic(internalError)
 	}
@@ -24,4 +31,15 @@ func parseJSON(r io.Reader, v interface{}) {
 		log.Println("parsing json body:", err)
 		panic(malformedInputError)
 	}
+}
+
+func parseIntParam(r *http.Request, key string) int {
+	vars := mux.Vars(r)
+	if v, ok := vars[key]; ok {
+		i, err := strconv.Atoi(v)
+		if err == nil {
+			return i
+		}
+	}
+	panic(malformedInputError)
 }
