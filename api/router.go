@@ -1,13 +1,14 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
-// TodoListAPI welcome code
+// TodoListAPI todo list API
 func TodoListAPI() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello, World!")
-	})
+	router := mux.NewRouter()
+	router.HandleFunc("/lists", getTodoLists).Methods(http.MethodGet)
+	return router
 }

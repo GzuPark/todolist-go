@@ -1,7 +1,7 @@
 # ToDo List for Go
 
 ## APIs
-- [ ] `GET/lists`: 목록 받기
+- [x] `GET/lists`: 목록 받기
 - [ ] `POST/list`: 새로운 목록 생성
 - [ ] `GET/list/{list_id}`: 목록 이름 및 아이템 받기
 - [ ] `PUT/list/{list_id}`: 목록 이름 변경
@@ -52,5 +52,16 @@
 - API 결과를 받기 전 단계에 status code를 받아 그대로 전달하고 custom logging 출력 함수 작성
 
 ![curl: default](./assets/curl_00.png)
+
+</details>
+
+
+<details>
+<summary> Method <code>GET/lists</code> </summary>
+
+- `GET/lists` 작성
+- 현재 database에는 등록된 todo list가 없으므로 빈 목록 출력
+
+![curl: GET/lists](./assets/curl_get_lists.png)
 
 </details>
