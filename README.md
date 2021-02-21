@@ -6,7 +6,7 @@
 - [x] `GET/list/{list_id}`: 목록 이름 및 아이템 받기
 - [x] `PUT/list/{list_id}`: 목록 이름 변경
 - [x] `DELETE/list/{list_id}`: 목록 삭제
-- [ ] `POST/list/{list_id}/item`: 새로운 아이템 추가
+- [x] `POST/list/{list_id}/item`: 새로운 아이템 추가
 - [ ] `PUT/list/{list_id}/item/{item_id}`: 아이템 변경
 - [ ] `DELETE/list/{list_id}/item/{item_id}`: 아이템 삭제
 
@@ -124,5 +124,23 @@
 - 해당 list ID를 todo list에서 삭제
 
 ![curl: DELETE/list/{list_id}](./assets/curl_delete_list_list_id.png)
+
+</details>
+
+
+<details>
+<summary> Method <code>POST/list/{list_id}/item</code> </summary>
+
+- `POST/list/{list_id}/item` 작성
+- 해당 list ID에 item 생성
+
+    ```json
+    {
+        "text": "Check the progress",
+        "done": false
+    }
+    ```
+
+![curl: POST/list/{list_id}/item](./assets/curl_post_item.png)
 
 </details>
