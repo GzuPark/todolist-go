@@ -7,7 +7,7 @@
 - [x] `PUT/list/{list_id}`: 목록 이름 변경
 - [x] `DELETE/list/{list_id}`: 목록 삭제
 - [x] `POST/list/{list_id}/item`: 새로운 아이템 추가
-- [ ] `PUT/list/{list_id}/item/{item_id}`: 아이템 변경
+- [x] `PUT/list/{list_id}/item/{item_id}`: 아이템 변경
 - [ ] `DELETE/list/{list_id}/item/{item_id}`: 아이템 삭제
 
 ## Developing steps
@@ -142,5 +142,23 @@
     ```
 
 ![curl: POST/list/{list_id}/item](./assets/curl_post_item.png)
+
+</details>
+
+
+<details>
+<summary> Method <code>PUT/list/{list_id}/item/{item_id}</code> </summary>
+
+- `PUT/list/{list_id}/item/{item_id}` 작성
+- 해당 list ID의 특정 item 내용 수정
+
+    ```json
+    {
+        "text": "Check the progress",
+        "done": true
+    }
+    ```
+
+![curl: PUT/list/{list_id}/item/{item_id}](./assets/curl_put_item_id.png)
 
 </details>
