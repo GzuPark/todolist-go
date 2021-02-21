@@ -122,3 +122,17 @@ func UpdateTodoItem(listID, itemID int, text string, done bool) error {
 
 	return nil
 }
+
+// DeleteTodoItem delete specific todo item
+func DeleteTodoItem(listID, itemID int) error {
+	res, err := db.Exec(`DELETE FROM todo_item WHERE id = $1 AND todo_list_id = $2`, itemID, listID)
+	if err != nil {
+		return err
+	}
+
+	if rowsAffected, err := res.RowsAffected(); err != nil || rowsAffected == 0 {
+		return ErrorNotFound
+	}
+
+	return nil
+}

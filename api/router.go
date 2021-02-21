@@ -16,6 +16,7 @@ func TodoListAPI() http.Handler {
 	router.HandleFunc("/list/{list_id}", deleteTodoList).Methods(http.MethodDelete)
 	router.HandleFunc("/list/{list_id}/item", createTodoItem).Methods(http.MethodPost)
 	router.HandleFunc("/list/{list_id}/item/{item_id}", updateTodoItem).Methods(http.MethodPut)
+	router.HandleFunc("/list/{list_id}/item/{item_id}", deleteTodoItem).Methods(http.MethodDelete)
 
 	router.Use(handlePanic)
 
