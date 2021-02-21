@@ -27,3 +27,10 @@ func getTodoList(w http.ResponseWriter, r *http.Request) {
 	must(err)
 	writeJSON(w, list)
 }
+
+func updateTodoList(w http.ResponseWriter, r *http.Request) {
+	listID := parseIntParam(r, "list_id")
+	var req todo.List
+	parseJSON(r.Body, &req)
+	must(db.UpdateTodoList(listID, req.Name))
+}

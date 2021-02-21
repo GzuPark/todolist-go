@@ -70,3 +70,17 @@ func GetTodoList(todoListID int) (todo.ListWithItems, error) {
 
 	return list, nil
 }
+
+// UpdateTodoList update todo list
+func UpdateTodoList(id int, newName string) error {
+	res, err := db.Exec(`UPDATE todo_list SET name = $1 WHERE id = $2`, newName, id)
+	if err != nil {
+		return err
+	}
+
+	if rowsAffected, err := res.RowsAffected(); err != nil || rowsAffected == 0 {
+		return ErrorNotFound
+	}
+
+	return nil
+}

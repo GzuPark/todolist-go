@@ -4,7 +4,7 @@
 - [x] `GET/lists`: 목록 받기
 - [x] `POST/list`: 새로운 목록 생성
 - [x] `GET/list/{list_id}`: 목록 이름 및 아이템 받기
-- [ ] `PUT/list/{list_id}`: 목록 이름 변경
+- [x] `PUT/list/{list_id}`: 목록 이름 변경
 - [ ] `DELETE/list/{list_id}`: 목록 삭제
 - [ ] `POST/list/{list_id}/item`: 새로운 아이템 추가
 - [ ] `PUT/list/{list_id}/item/{item_id}`: 아이템 변경
@@ -40,7 +40,7 @@
     ```
 
 - Connection URL
-  - `postgres://postgres:password@localhost:5432/postgres?sslmode-disable`
+  - `postgres://postgres:password@localhost:5432/postgres?sslmode=disable`
 
 </details>
 
@@ -102,5 +102,16 @@
 - todo list와 items를 LEFT JOIN 한 후 해당하는 list ID의 목록을 출력
 
 ![curl: GET/list/{list_id}](./assets/curl_get_list_list_id.png)
+
+</details>
+
+
+<details>
+<summary> Method <code>PUT/list/{list_id}</code> </summary>
+
+- `PUT/list/{list_id}` 작성
+- 해당 list ID의 name을 변경
+
+![curl: PUT/list/{list_id}](./assets/curl_put_list_list_id.png)
 
 </details>
