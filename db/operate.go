@@ -21,3 +21,10 @@ func GetTodoLists() ([]todo.List, error) {
 
 	return lists, nil
 }
+
+// CreateTodoList create new todo list
+func CreateTodoList(name string) (list todo.List, err error) {
+	list.Name = name
+	err = db.QueryRow(`INSERT INTO todo_list (name) VALUES ($1) RETURNING id`, name).Scan(&list.ID)
+	return
+}

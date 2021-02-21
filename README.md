@@ -2,7 +2,7 @@
 
 ## APIs
 - [x] `GET/lists`: 목록 받기
-- [ ] `POST/list`: 새로운 목록 생성
+- [x] `POST/list`: 새로운 목록 생성
 - [ ] `GET/list/{list_id}`: 목록 이름 및 아이템 받기
 - [ ] `PUT/list/{list_id}`: 목록 이름 변경
 - [ ] `DELETE/list/{list_id}`: 목록 삭제
@@ -72,5 +72,24 @@
 
 - 반복해서 사용할 error handler를 범용적으로 사용할 수 있도록 변경
 - panic, recover를 사용해서 error message 출력
+
+</details>
+
+
+<details>
+<summary> Method <code>POST/list</code> </summary>
+
+- `POST/list` 작성
+- Request 할 때 body에 json 입력할 것
+
+    ```json
+    {
+        "name": "Gopher"
+    }
+    ```
+
+- 생성된 todo list의 목록을 확인할 수 있음
+
+![curl: POST/list](./assets/curl_post_list.png)
 
 </details>
