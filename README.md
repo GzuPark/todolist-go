@@ -43,3 +43,14 @@
   - `postgres://postgres:password@localhost:5432/postgres?sslmode-disable`
 
 </details>
+
+
+<details>
+<summary> Simple connect to database and serve </summary>
+
+- Postgres 접속 후 `localhost:8080`에서 _Hello, World!_ 확인
+- API 결과를 받기 전 단계에 status code를 받아 그대로 전달하고 custom logging 출력 함수 작성
+
+![curl: default](./assets/curl_00.png)
+
+</details>
