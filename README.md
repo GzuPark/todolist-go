@@ -65,3 +65,12 @@
 ![curl: GET/lists](./assets/curl_get_lists.png)
 
 </details>
+
+
+<details>
+<summary> Apply improved error handler </summary>
+
+- 반복해서 사용할 error handler를 범용적으로 사용할 수 있도록 변경
+- panic, recover를 사용해서 error message 출력
+
+</details>
