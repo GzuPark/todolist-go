@@ -34,3 +34,8 @@ func updateTodoList(w http.ResponseWriter, r *http.Request) {
 	parseJSON(r.Body, &req)
 	must(db.UpdateTodoList(listID, req.Name))
 }
+
+func deleteTodoList(w http.ResponseWriter, r *http.Request) {
+	listID := parseIntParam(r, "list_id")
+	must(db.DeleteTodoList(listID))
+}
